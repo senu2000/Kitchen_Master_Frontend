@@ -1,0 +1,11 @@
+#search-bar{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.input{
+    border-color: #DA0037;
+}
+#sicon{
+    /*font-size: 20px;*/
+}

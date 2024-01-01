@@ -1,0 +1,36 @@
+#all{
+    background-color: #444444;
+    border-radius: 0;
+    /*margin-top: 475px;*/
+}
+#footer-logo{
+
+}
+#footer-link{
+    color: #DA0037;
+}
+#footer-link:hover{
+    color: #EDEDED;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+#fb{
+    color: #EDEDED;
+}
+#fb:hover{
+    color: #2121e0;
+}
+#wtsp{
+    color: #EDEDED;
+    font-size: 1.1rem;
+}
+#wtsp:hover{
+    color: darkgreen;
+}
+#ytb{
+    color: #EDEDED;
+    font-size: 1.2rem;
+}
+#ytb:hover{
+    color: darkred;
+}

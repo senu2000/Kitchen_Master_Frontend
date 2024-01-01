@@ -1,0 +1,12 @@
+#main-btn{
+    background-color: #DA0037;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #EDEDED;
+    margin-right: 5px;
+}
+#main-btn:hover{
+    background-color: #EDEDED;
+    color: #DA0037;
+    transition: 0.3s ease-in-out;
+}
