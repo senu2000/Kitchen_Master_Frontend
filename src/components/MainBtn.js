@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from "flowbite-react";
+import "../css/MainBtncss.css";
 
 function MainBtn({children}) {
     return (
