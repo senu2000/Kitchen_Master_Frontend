@@ -13,6 +13,7 @@ import YourRecipePage from "./pages/YourRecipePage";
 import EditRecipePage from "./pages/EditRecipePage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ViewRecipePage from "./pages/ViewRecipePage";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
     {
         path: "signup",
         element: <Signup/>,
+    },
+    {
+        path: "view-recipe",
+        element: <ViewRecipePage/>,
     },
 ]);
 
