@@ -7,6 +7,12 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import AllRecipePage from "./pages/AllRecipePage";
+import AdminPanal from "./pages/AdminPanal";
+import AddRecipePage from "./pages/AddRecipePage";
+import YourRecipePage from "./pages/YourRecipePage";
+import EditRecipePage from "./pages/EditRecipePage";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +22,30 @@ const router = createBrowserRouter([
     {
         path: "all-recipes",
         element: <AllRecipePage/>,
+    },
+    {
+        path: "admin",
+        element: <AdminPanal/>,
+    },
+    {
+        path: "add-recipe",
+        element: <AddRecipePage/>,
+    },
+    {
+        path: "your-recipes",
+        element: <YourRecipePage/>,
+    },
+    {
+        path: "edit-recipes",
+        element: <EditRecipePage/>,
+    },
+    {
+        path: "login",
+        element: <Login/>,
+    },
+    {
+        path: "signup",
+        element: <Signup/>,
     },
 ]);
 
