@@ -2,7 +2,8 @@ import React from 'react';
 import { Button, Navbar } from 'flowbite-react';
 import { Link } from "react-router-dom";
 import "../css/Navbarcss.css";
-import MainBtn from "./MainBtn";
+//mport MainBtn from "./MainBtn";
+
 
 function Navbardrk() {
     return (

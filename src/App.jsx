@@ -3,7 +3,8 @@ import Navbardrk from "./components/Navbar";
 import Footerdark from "./components/Footer";
 import ImageSlider from "./components/ImageSlider";
 import SearchBar from "./components/SearchBar";
-import Rcard from "./components/Card";
+import AllRcard from "./components/AllRecipeCard";
+
 
 
 function App() {
@@ -34,19 +35,19 @@ function App() {
             <hr id="hr1"/>
             <div id = "r-card-area" className="flex">
                 <div id = "r-card">
-                    <Rcard/>
+                    <AllRcard/>
                 </div>
                 <div id = "r-card">
-                    <Rcard/>
+                    <AllRcard/>
                 </div>
                 <div id = "r-card">
-                    <Rcard/>
+                    <AllRcard/>
                 </div>
                 <div id = "r-card">
-                    <Rcard/>
+                    <AllRcard/>
                 </div>
                 <div id = "r-card">
-                    <Rcard/>
+                    <AllRcard/>
                 </div>
             </div>
         </div>
