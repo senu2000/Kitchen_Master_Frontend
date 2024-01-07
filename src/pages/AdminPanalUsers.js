@@ -1,20 +1,20 @@
 import React from 'react';
+import "../css/AdminPanelUserscss.css";
 import SideNavbar from "../components/SideNavbar";
-import "../css/AdminPanelcss.css";
-import SideNavbarRecipeContent from "../components/SideNavbarRecipeContent";
+import SideNavbarUserContent from "../components/SideNavbarUserContent";
 
-function AdminPanal(props) {
+
+function AdminPanalUsers(props) {
     return (
-        <div id="admin-body" className="flex">
+        <div id="user-body" className="flex">
             <div className="basis-[10%]">
                 <SideNavbar/>
             </div>
             <div className="basis-[90%]">
-                <SideNavbarRecipeContent/>
+                <SideNavbarUserContent/>
             </div>
-
         </div>
     );
 }
 
-export default AdminPanal;
+export default AdminPanalUsers;
