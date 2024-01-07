@@ -1,0 +1,20 @@
+.side-navbar-body{
+    /*height: auto;*/
+}
+#side-bar-btn{
+    background-color: #DA0037;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #EDEDED;
+    margin: 20px 10px 10px 20px;
+    padding: 10px 35px 10px 35px;
+    border-radius: 5px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+#side-bar-btn:hover{
+    background-color: #EDEDED;
+    color: #DA0037;
+    transition: 0.3s ease-in-out;
+}
