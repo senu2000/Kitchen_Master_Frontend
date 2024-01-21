@@ -1,7 +1,7 @@
 import React from 'react';
 import {Table} from "flowbite-react";
 
-function UserTable(props) {
+function AdminTable(props) {
     return (
         <div>
             <div className="overflow-x-auto" id="recipe-table">
@@ -88,4 +88,4 @@ function UserTable(props) {
     );
 }
 
-export default UserTable;
+export default AdminTable;
