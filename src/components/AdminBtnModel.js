@@ -32,7 +32,7 @@ function AdminBtnModel(props) {
                 <Modal.Body>
                     <div className="space-y-6">
                         <div className="w-full flex items-center justify-center">
-                            <h3 className="text-xl font-medium text-red-600 dark:text-white">Add Recipe</h3>
+                            <h3 className="text-3xl font-extrabold font-medium text-red-600 dark:text-white">Add Recipe</h3>
                         </div>
                         {/*<div>*/}
                         {/*    <div className="mb-2 block">*/}

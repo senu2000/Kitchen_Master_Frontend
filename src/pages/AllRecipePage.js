@@ -2,10 +2,11 @@ import React from 'react';
 import Navbardrk from "../components/Navbar";
 import AllRcard from "../components/AllRecipeCard";
 import Footerdark from "../components/Footer";
+import "../css/AllRecipecss.css";
 
 function AllRecipePage(props) {
     return (
-        <div>
+        <div className="all-recipe-page">
             <Navbardrk/>
             <div id="meals">
             <h2>Breakfast Meals</h2>

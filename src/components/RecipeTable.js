@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'flowbite-react';
 import "../css/RecipeTablecss.css";
+import DeleteBtnModel from "./DeleteBtnModel";
 
 function RecipeTable(props) {
     return (
@@ -32,9 +33,10 @@ function RecipeTable(props) {
                                 </a>
                             </Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
+                                <DeleteBtnModel/>
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -52,9 +54,10 @@ function RecipeTable(props) {
                                 </a>
                             </Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -70,9 +73,10 @@ function RecipeTable(props) {
                                 </a>
                             </Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -90,9 +94,10 @@ function RecipeTable(props) {
                                 </a>
                             </Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -108,9 +113,10 @@ function RecipeTable(props) {
                                 </a>
                             </Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                     </Table.Body>

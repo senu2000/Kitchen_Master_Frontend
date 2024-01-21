@@ -1,8 +1,6 @@
 import React from 'react';
 import Navbardrk from "../components/Navbar";
-
 import YourRecipeTable from '../components/YourRecipeTable';
-
 
  function YourRecipePage(props) {
     return (

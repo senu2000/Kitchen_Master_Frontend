@@ -1,5 +1,8 @@
 #edit-btn{
     color: #444444;
+    background-color: #EDEDED;
+    padding: 10px;
+    border-radius: 10px;
     font-size: 0.9rem;
     font-weight: 700;
 }
@@ -8,6 +11,7 @@
     background-color: #444444;
     padding: 10px;
     border-radius: 10px;
+    transition: 0.3s ease-in-out;
 }
 #delete-btn{
     color: #DA0037;

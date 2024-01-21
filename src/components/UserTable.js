@@ -1,5 +1,6 @@
 import React from 'react';
 import {Table} from "flowbite-react";
+import DeleteBtnModel from "./DeleteBtnModel";
 
 function UserTable(props) {
     return (
@@ -25,9 +26,10 @@ function UserTable(props) {
                             </Table.Cell>
                             <Table.Cell>senuraadithya4@gmail.com</Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -39,9 +41,10 @@ function UserTable(props) {
                             </Table.Cell>
                             <Table.Cell>thimirakalansooriya@gmail.com</Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -49,9 +52,10 @@ function UserTable(props) {
                             <Table.Cell>Sithi</Table.Cell>
                             <Table.Cell>sithijadeshan@gmail.com</Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -61,9 +65,10 @@ function UserTable(props) {
                             <Table.Cell>Desh</Table.Cell>
                             <Table.Cell>nipunadeshan@gmail.com</Table.Cell>
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -75,10 +80,12 @@ function UserTable(props) {
                             {/*        Edit*/}
                             {/*    </a>*/}
                             {/*</Table.Cell>*/}
+
                             <Table.Cell>
-                                <a href="#" id="delete-btn" className="">
-                                    Delete
-                                </a>
+                                <DeleteBtnModel/>
+                                {/*<a href="#" id="delete-btn" className="">*/}
+                                {/*    Delete*/}
+                                {/*</a>*/}
                             </Table.Cell>
                         </Table.Row>
                     </Table.Body>
