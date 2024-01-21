@@ -1,15 +1,21 @@
 import React from 'react';
-import Rcard from "./Card";
+import AdminAddUserBtnModel from "./AdminAddUserBtnModel";
+import AdminTable from "./AdminTable";
 
 function SideNavbarAdminContent(props) {
     return (
         <div>
             <div
-                className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Admins</h3>
-                <Rcard/>
-                <Rcard/>
-                <Rcard/>
+                className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                        <div className="border-l-4 border-red-600 h-6 mr-4"></div>
+                        <h3 className="text-lg font-bold text-red-600 dark:text-white mb-2 recipe-text">Admins</h3>
+                    </div>
+                    <AdminAddUserBtnModel parameter1="Add Admin" parameter2="Admin" />
+                </div>
+                <hr className="recipe-hr"/>
+                <AdminTable/>
             </div>
         </div>
     );

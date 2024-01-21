@@ -5,9 +5,13 @@ import SideNavbar from "../components/SideNavbar";
 
 function AdminPanalAdmins(props) {
     return (
-        <div id="admin-body" className="flex">
-            <SideNavbar/>
-            <SideNavbarAdminContent/>
+        <div id="admin-body" className="flex ">
+            <div className="basis-[10%]">
+                <SideNavbar/>
+            </div>
+            <div className="basis-[90%]">
+                <SideNavbarAdminContent/>
+            </div>
         </div>
     );
 }
