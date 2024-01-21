@@ -3,6 +3,7 @@ import RecipeTable from "./RecipeTable";
 import "../css/RecipeContentcss.css";
 import AdminBtnModel from "./AdminBtnModel";
 
+
 function SideNavbarRecipeContent(props) {
     return (
         <div>

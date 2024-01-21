@@ -1,11 +1,17 @@
 import React from 'react';
 import Navbardrk from "../components/Navbar";
 
-function YourRecipePage(props) {
+import YourRecipeTable from '../components/YourRecipeTable';
+
+
+ function YourRecipePage(props) {
     return (
         <div>
             <Navbardrk/>
-            View Your all recipes here
+            <div id="meals">
+            <h2>Your Recipes</h2>
+            </div>
+            <YourRecipeTable/>
         </div>
     );
 }
