@@ -1,0 +1,36 @@
+.form{
+    background-color: rgba(0, 0, 0, 0.84);
+  /*background: url("../public/img/bg1.jpg");*/
+}
+
+.edit-recipe{
+    align-items: center;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(left, #da0037, #ededed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.label-container label {
+    color: white;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.label-container input,
+.label-container select,
+.label-container textarea {
+  flex: 28; /* Adjust the flex value based on your design */
+}
+
+.button{
+    color: white;
+}
