@@ -1,0 +1,31 @@
+#edit-btn{
+    color: #444444;
+    background-color: #EDEDED;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+#edit-btn:hover{
+    color: #EDEDED;
+    background-color: #444444;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+#delete-btn{
+    color: #DA0037;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+#delete-btn:hover{
+    color: #EDEDED;
+    background-color: #DA0037;
+    padding: 10px;
+    border-radius: 10px;
+}
+#recipe-img{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
