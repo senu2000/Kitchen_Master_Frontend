@@ -1,6 +1,7 @@
 import React from "react";
 import Navbardrk from "../components/Navbar";
 import "../css/ViewRecipe.css";
+import Footerdark from "../components/Footer";
 
 function ViewRecipePage(props) {
   return (
@@ -76,6 +77,7 @@ function ViewRecipePage(props) {
           </div>
         </div>
       </div>
+      <Footerdark />
     </div>
   );
 }
