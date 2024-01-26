@@ -14,6 +14,8 @@ import EditRecipePage from "./pages/EditRecipePage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ViewRecipePage from "./pages/ViewRecipePage";
+import AdminPanalUsers from "./pages/AdminPanalUsers";
+import AdminPanalAdmins from "./pages/AdminPanalAdmins";
 
 const router = createBrowserRouter([
     {
@@ -25,8 +27,16 @@ const router = createBrowserRouter([
         element: <AllRecipePage/>,
     },
     {
-        path: "admin",
+        path: "admin-recipe",
         element: <AdminPanal/>,
+    },
+    {
+        path: "admin-users",
+        element: <AdminPanalUsers/>,
+    },
+    {
+        path: "admin-admins",
+        element: <AdminPanalAdmins/>,
     },
     {
         path: "add-recipe",
