@@ -12,7 +12,8 @@ function Navbardrk() {
             </Navbar.Brand>
             <div className="flex md:order-2">
                 {/*<Button id="logout-btn">Logout</Button>*/}
-                <MainBtn>Logout</MainBtn>
+                <MainBtn to="/Login">Login</MainBtn>
+                
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse id="nav-links">
@@ -20,6 +21,7 @@ function Navbardrk() {
                 <Link to="/all-recipes" id="nav-link">All Recipes</Link>
                 <Link to="/add-recipe" id="nav-link">Add Recipe</Link>
                 <Link to="/your-recipes" id="nav-link">Your Recipes</Link>
+                
             </Navbar.Collapse>
         </Navbar>
     );
