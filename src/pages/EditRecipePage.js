@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/EditRecipe.css";
 import Navbardrk from "../components/Navbar";
+import Footerdark from "../components/Footer";
 
 const EditRecipePage = () => {
   // State variables to store form data
@@ -155,6 +156,7 @@ const EditRecipePage = () => {
           </div>
         </section>
       </form>
+      <Footerdark/>
     </div>
   );
 };
