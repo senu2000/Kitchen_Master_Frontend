@@ -1,13 +1,42 @@
-import React from 'react';
-import { Table } from 'flowbite-react';
-import "../css/RecipeTablecss.css";
+import React, {useEffect, useState} from 'react';
+import {Table} from 'flowbite-react';
 import DeleteBtnModel from "./DeleteBtnModel";
+import axios from "axios";
+import AdminEditBtnModel from "./AdminEditBtnModel";
 
 function RecipeTable(props) {
+
+    const [data, setData] = useState([]);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/kitchenMaster/recipeform/');
+            const recipes = response.data;
+
+            const recipesWithUserData = await Promise.all(
+                recipes.map(async (recipe) => {
+                    const userResponse = await axios.get(`http://127.0.0.1:8000/kitchenMaster/userform/${recipe.fk}/`);
+                    const userData = userResponse.data;
+
+                    return { ...recipe, user: userData };
+                })
+            );
+
+            setData(recipesWithUserData);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
     return (
         <div>
             <div className="overflow-x-auto" id="recipe-table">
-                <Table striped >
+                <Table striped>
                     <Table.Head>
                         <Table.HeadCell>Title</Table.HeadCell>
                         <Table.HeadCell>Category</Table.HeadCell>
@@ -18,107 +47,28 @@ function RecipeTable(props) {
                         </Table.HeadCell>
                     </Table.Head>
                     <Table.Body className="divide-y">
-                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                {'Crispy Chicken'}
-                            </Table.Cell>
-                            <Table.Cell>Lunch</Table.Cell>
-                            <Table.Cell>
-                                <img src="/img/ckn.png" alt="" id="recipe-img"/>
-                            </Table.Cell>
-                            <Table.Cell>Senura Adithya</Table.Cell>
-                            <Table.Cell>
-                                <a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
-                                    Edit
-                                </a>
-                            </Table.Cell>
-                            <Table.Cell>
-                                {/*<a href="#" id="delete-btn" className="">*/}
-                                {/*    Delete*/}
-                                {/*</a>*/}
-                                <DeleteBtnModel/>
-                            </Table.Cell>
-                        </Table.Row>
-                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                Chicken Rice
-                            </Table.Cell>
-                            <Table.Cell>Dinner</Table.Cell>
-                            <Table.Cell>
-                                <img src="/img/ckn.png" alt="" id="recipe-img"/>
-                            </Table.Cell>
-                            <Table.Cell>Thimira Kalansooriya</Table.Cell>
-                            <Table.Cell>
-                                <a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
-                                    Edit
-                                </a>
-                            </Table.Cell>
-                            <Table.Cell>
-                                <DeleteBtnModel/>
-                                {/*<a href="#" id="delete-btn" className="">*/}
-                                {/*    Delete*/}
-                                {/*</a>*/}
-                            </Table.Cell>
-                        </Table.Row>
-                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Bread Toast</Table.Cell>
-                            <Table.Cell>Breakfirst</Table.Cell>
-                            <Table.Cell>
-                                <img src="/img/ckn.png" alt="" id="recipe-img"/>
-                            </Table.Cell>
-                            <Table.Cell>Sithija Deshan</Table.Cell>
-                            <Table.Cell>
-                                <a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
-                                    Edit
-                                </a>
-                            </Table.Cell>
-                            <Table.Cell>
-                                <DeleteBtnModel/>
-                                {/*<a href="#" id="delete-btn" className="">*/}
-                                {/*    Delete*/}
-                                {/*</a>*/}
-                            </Table.Cell>
-                        </Table.Row>
-                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                Hoppers
-                            </Table.Cell>
-                            <Table.Cell>Dinner</Table.Cell>
-                            <Table.Cell>
-                                <img src="/img/ckn.png" alt="" id="recipe-img"/>
-                            </Table.Cell>
-                            <Table.Cell>Nipuna Deshan</Table.Cell>
-                            <Table.Cell>
-                                <a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
-                                    Edit
-                                </a>
-                            </Table.Cell>
-                            <Table.Cell>
-                                <DeleteBtnModel/>
-                                {/*<a href="#" id="delete-btn" className="">*/}
-                                {/*    Delete*/}
-                                {/*</a>*/}
-                            </Table.Cell>
-                        </Table.Row>
-                        <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                            <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">Smoothie</Table.Cell>
-                            <Table.Cell>Drink</Table.Cell>
-                            <Table.Cell>
-                                <img src="/img/ckn.png" alt="" id="recipe-img"/>
-                            </Table.Cell>
-                            <Table.Cell>Isuru Dhananjaya</Table.Cell>
-                            <Table.Cell>
-                                <a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
-                                    Edit
-                                </a>
-                            </Table.Cell>
-                            <Table.Cell>
-                                <DeleteBtnModel/>
-                                {/*<a href="#" id="delete-btn" className="">*/}
-                                {/*    Delete*/}
-                                {/*</a>*/}
-                            </Table.Cell>
-                        </Table.Row>
+                        {data.map((recipe, index) => (
+                            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={index}>
+                                <Table.Cell
+                                    className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{recipe.title}</Table.Cell>
+                                <Table.Cell>{recipe.category}</Table.Cell>
+                                <Table.Cell>
+                                    <img src={recipe.recipe_image} alt="" id="recipe-img"/>
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {`${recipe.user?.firstname || 'Unknown'} ${recipe.user?.lastname || 'Unknown'}`}
+                                </Table.Cell>
+                                <Table.Cell>
+                                    {/*<a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">*/}
+                                    {/*    Edit*/}
+                                    {/*</a>*/}
+                                    <AdminEditBtnModel item={recipe} onEditSuccess={fetchData} endpoint="recipeform"/>
+                                </Table.Cell>
+                                <Table.Cell>
+                                    <DeleteBtnModel item={recipe} onDeleteSuccess={fetchData} endpoint="recipeform" />
+                                </Table.Cell>
+                            </Table.Row>
+                        ))}
                     </Table.Body>
                 </Table>
             </div>
