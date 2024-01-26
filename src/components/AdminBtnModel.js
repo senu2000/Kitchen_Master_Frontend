@@ -34,18 +34,6 @@ function AdminBtnModel(props) {
                         <div className="w-full flex items-center justify-center">
                             <h3 className="text-3xl font-extrabold font-medium text-red-600 dark:text-white">Add Recipe</h3>
                         </div>
-                        {/*<div>*/}
-                        {/*    <div className="mb-2 block">*/}
-                        {/*        <Label htmlFor="email" value="Your email" />*/}
-                        {/*    </div>*/}
-                        {/*    <TextInput*/}
-                        {/*        id="email"*/}
-                        {/*        placeholder="name@company.com"*/}
-                        {/*        value={email}*/}
-                        {/*        onChange={(event) => setEmail(event.target.value)}*/}
-                        {/*        required*/}
-                        {/*    />*/}
-                        {/*</div>*/}
                         <div>
                             <div className="mb-2 block">
                                 <Label htmlFor="title" value="Title" />
