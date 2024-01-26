@@ -63,13 +63,6 @@ function Navbardrk() {
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse id="nav-links">
-<<<<<<< HEAD
-                <Link to="/" id="nav-link" className="active">Home</Link>
-                <Link to="/all-recipes" id="nav-link">All Recipes</Link>
-                <Link to="/add-recipe" id="nav-link">Add Recipe</Link>
-                <Link to="/your-recipes" id="nav-link">Your Recipes</Link>
-                
-=======
                 <Link
                     to="/"
                     id="nav-link"
@@ -102,7 +95,6 @@ function Navbardrk() {
                 >
                     Your Recipes
                 </Link>
->>>>>>> 79af3c59d79b71df02411da7d99a56418efad81e
             </Navbar.Collapse>
         </Navbar>
     );

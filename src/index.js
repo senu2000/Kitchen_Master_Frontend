@@ -11,48 +11,8 @@ import EditRecipePage from "./pages/EditRecipePage";
 import Login from "./pages/login/Login";
 import Signup from "./pages/login/Signup";
 import ViewRecipePage from "./pages/ViewRecipePage";
-<<<<<<< HEAD
 import { Provider } from 'react-redux';
 import store from './redux/store';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "all-recipes",
-    element: <AllRecipePage />,
-  },
-  {
-    path: "admin",
-    element: <AdminPanal />,
-  },
-  {
-    path: "add-recipe",
-    element: <AddRecipePage />,
-  },
-  {
-    path: "your-recipes",
-    element: <YourRecipePage />,
-  },
-  {
-    path: "edit-recipes",
-    element: <EditRecipePage />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "signup",
-    element: <Signup />,
-  },
-  {
-    path: "view-recipe",
-    element: <ViewRecipePage />,
-  },
-=======
 import AdminPanalUsers from "./pages/AdminPanalUsers";
 import AdminPanalAdmins from "./pages/AdminPanalAdmins";
 
@@ -102,7 +62,6 @@ const router = createBrowserRouter([
         path: "view-recipe",
         element: <ViewRecipePage/>,
     },
->>>>>>> 79af3c59d79b71df02411da7d99a56418efad81e
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
