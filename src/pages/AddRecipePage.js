@@ -21,11 +21,11 @@ function AddRecipePage() {
   //   }
   //   const handleSubmit = () => {};
   return (
-    <div className="bg-gray-800 ">
+    <div className="bg-gray-800 add-recipe-body">
       <Navbardrk />
       {/* <div style={{ backgroundImage: "url(../img/ckn.png)" }}> */}
       <div>
-        <form method="post">
+        <form method="post" id="add-recipepage-form">
           <h1 class="mb-4 text-5xl font-extrabold  text-left md:text-center">
             Add Your <span>Recipe</span>
           </h1>

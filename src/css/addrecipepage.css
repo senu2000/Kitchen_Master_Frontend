@@ -6,7 +6,11 @@
 * {
   box-sizing: border-box;
 } */
-form {
+.add-recipe-body{
+  background-color: rgba(0, 0, 0, 0.84);
+}
+
+#add-recipepage-form {
   display: block;
   background-color: #444444;
 
