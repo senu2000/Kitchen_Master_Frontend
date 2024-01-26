@@ -1,19 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AllRecipePage from "./pages/AllRecipePage";
 import AdminPanal from "./pages/AdminPanal";
 import AddRecipePage from "./pages/AddRecipePage";
 import YourRecipePage from "./pages/YourRecipePage";
 import EditRecipePage from "./pages/EditRecipePage";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Login from "./pages/login/Login";
+import Signup from "./pages/login/Signup";
 import ViewRecipePage from "./pages/ViewRecipePage";
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import AdminPanalUsers from "./pages/AdminPanalUsers";
 import AdminPanalAdmins from "./pages/AdminPanalAdmins";
 
@@ -65,10 +64,11 @@ const router = createBrowserRouter([
     },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
       <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
-
