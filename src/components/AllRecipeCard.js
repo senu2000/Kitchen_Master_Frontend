@@ -15,7 +15,7 @@ export default function AllRcard({ recipe }) {
           {recipe.title}
         </h5>
 
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           <a href="">
             <MainBtn>View Recipe</MainBtn>
           </a>
