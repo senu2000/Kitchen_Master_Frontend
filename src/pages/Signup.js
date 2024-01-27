@@ -14,13 +14,16 @@ const Signup = () => {
     const [password,setPassword] = useState('')
     const [email,setEmail] = useState('')
     const [fullname,setFullname] = useState('')
+    const [firstname,setFirstname] = useState('')
+    const [lastname,setLastname] = useState('')
+
     let navigate = useNavigate()
     const [role] = useCookies(["role"]);
     if(response.id!=null){
 
         if(role["role"]==="admin"){
             toast.success("Registraion Successfully!")
-            navigate("/admin")
+            navigate("/admin-recipe")
 
         }else{
             toast.success("Registraion Successfully!")
@@ -30,7 +33,7 @@ const Signup = () => {
 
 
     const RegisterBtn = () =>{
-        APIService.RegisterUser({email,password,fullname,username})
+        APIService.RegisterUser({email,password,firstname,lastname,username})
             .then((resp) => setResponse(resp))
             .catch(error => console.log(error))
     }
@@ -62,24 +65,72 @@ const Signup = () => {
                                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                                     <div className="space-y-6">
 
+                                        {/*<div>*/}
+                                        {/*    <label htmlFor="Name" className="name block text-lg font-medium leading-6 text-white">*/}
+                                        {/*        FullName*/}
+                                        {/*    </label>*/}
+                                        {/*    <div className="mt-2">*/}
+                                        {/*        <input*/}
+                                        {/*            id="fullname"*/}
+                                        {/*            name="fullname"*/}
+                                        {/*            type="text"*/}
+                                        {/*            placeholder='Enter Full Name'*/}
+                                        {/*            value={fullname} onChange={e => setFullname(e.target.value)}*/}
+                                        {/*            required*/}
+                                        {/*            className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"*/}
+                                        {/*        />*/}
+                                        {/*        {response.fullname!==null ? (*/}
+                                        {/*            <>*/}
+
+                                        {/*                <span className="error text-center text-lg text-danger">{response.fullname}</span>*/}
+                                        {/*            </>*/}
+                                        {/*        ) :null*/}
+                                        {/*        }*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
+
                                         <div>
-                                            <label htmlFor="Name" className="name block text-lg font-medium leading-6 text-white">
-                                                FullName
+                                            <label htmlFor="firstname" className="name block text-lg font-medium leading-6 text-white">
+                                                firstname
                                             </label>
                                             <div className="mt-2">
                                                 <input
-                                                    id="fullname"
-                                                    name="fullname"
+                                                    id="firstname"
+                                                    name="firstname"
                                                     type="text"
-                                                    placeholder='Enter Full Name'
-                                                    value={fullname} onChange={e => setFullname(e.target.value)}
+                                                    placeholder='Enter firstname Name'
+                                                    value={firstname} onChange={e => setFirstname(e.target.value)}
                                                     required
                                                     className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                                 />
-                                                {response.fullname!==null ? (
+                                                {response.firstname!==null ? (
                                                     <>
 
-                                                        <span className="error text-center text-lg text-danger">{response.fullname}</span>
+                                                        <span className="error text-center text-lg text-danger">{response.firstname}</span>
+                                                    </>
+                                                ) :null
+                                                }
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <label htmlFor="lastname" className="name block text-lg font-medium leading-6 text-white">
+                                                lastname
+                                            </label>
+                                            <div className="mt-2">
+                                                <input
+                                                    id="lastname"
+                                                    name="lastname"
+                                                    type="text"
+                                                    placeholder='Enter lastname Name'
+                                                    value={lastname} onChange={e => setLastname(e.target.value)}
+                                                    required
+                                                    className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                                />
+                                                {response.lastname!==null ? (
+                                                    <>
+
+                                                        <span className="error text-center text-lg text-danger">{response.lastname}</span>
                                                     </>
                                                 ) :null
                                                 }
