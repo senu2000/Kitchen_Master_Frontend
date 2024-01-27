@@ -5,6 +5,7 @@ import { useState,useEffect} from 'react';
 import APIService from '../components/APIService';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const Login = () => {
     // login function
@@ -13,10 +14,12 @@ const Login = () => {
     //set token
     const [token, setToken] = useCookies(['mytoken'])
     const [error,setError] = useState('')
+    const [role,setRole] = useState(null)
     let navigate = useNavigate()
 
     useEffect(() =>{
         if(token['mytoken']){
+
             navigate('/')
         }
 
@@ -26,6 +29,12 @@ const Login = () => {
         APIService.LoginUser({username, password})
             .then((resp) => {if(resp.token){
                 setToken('mytoken',resp.token)
+                axios.get("http://127.0.0.1:8000/kitchenMaster/finduser/")
+                    .then(resp => {
+                        console.log(resp)
+                        localStorage.setItem('id','tres')
+
+                    })
             }else{
                 setError("Email or Password Incorrect")
                 setPassword("")
