@@ -1,9 +1,7 @@
 import React from 'react'
-import "../../styles/Login.css"
-import userr from "../../assets/logo/userr.png";
-import Header from '../../components/Layouts/Header'
-import Footer from '../../components/Layouts/Footer'
-import APIService from '../../api/APIService';
+import "../css/Login.css"
+// import userr from "../img/pizza.jpg";
+import APIService from '../components/APIService';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -38,7 +36,7 @@ const Signup = () => {
     }
     return (
         <>
-            <Header/>
+
             <div className="coonn min-h-screen flex items-center justify-center bg-gray-300">
                 <div className="container mx-auto p-16 ">
                     <div>
@@ -49,7 +47,7 @@ const Signup = () => {
 
 
 
-                                    <img src={userr} alt="Sign In" className='myimg'/>
+                                    <img src="" alt="Sign In" className='myimg'/>
 
 
 
@@ -199,7 +197,7 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+
         </>
     )
 

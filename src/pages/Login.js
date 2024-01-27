@@ -1,10 +1,8 @@
 import React from 'react'
-import "../../styles/Login.css"
-import userr from "../../assets/logo/userr.png";
-import Header from '../../components/Layouts/Header'
-import Footer from '../../components/Layouts/Footer'
+import "../css/Login.css"
+// import userr from "../img/pizza.jpg";
 import { useState,useEffect} from 'react';
-import APIService from '../../api/APIService';
+import APIService from '../components/APIService';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,7 +17,7 @@ const Login = () => {
 
     useEffect(() =>{
         if(token['mytoken']){
-            navigate('/home')
+            navigate('/')
         }
 
     })
@@ -41,7 +39,7 @@ const Login = () => {
     //login form
     return (
         <>
-            <Header/>
+
             <div className="coonn min-h-screen flex items-center justify-center bg-gray-300">
                 <div className="container mx-auto p-16 ">
                     <div>
@@ -51,7 +49,7 @@ const Login = () => {
                                 <div className="sm:mx-auto sm:w-full sm:max-w-lg">
 
 
-                                    <img src={userr} alt="Sign In" className='myimg'/>
+                                    <img src="" alt="Sign In" className='myimg'/>
 
                                     <div className="container rounded-2xl bg-gray-900 w-84 h-84"></div>
                                     <h2 className="bon mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">
@@ -137,7 +135,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
         </>
     )
 
