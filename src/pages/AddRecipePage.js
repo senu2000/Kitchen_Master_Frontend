@@ -31,7 +31,7 @@ function AddRecipePage() {
             </h1>
 
             <label className="block text-sm font-medium text-gray-600">
-              Title
+              Recipe Name
             </label>
             <input type="text" name="title" id="title"></input>
 
