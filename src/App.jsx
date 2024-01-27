@@ -15,8 +15,15 @@ function App() {
         try {
             const response = await axios.get('http://127.0.0.1:8000/kitchenMaster/recipeform/');
             const recipes = response.data;
-            console.log(recipes)
-            setData(recipes);
+
+            // Shuffle the array to get random recipes
+            const shuffledRecipes = recipes.sort(() => Math.random() - 0.5);
+
+            // Get the first 5 recipes
+            const randomRecipes = shuffledRecipes.slice(0, 4);
+
+            console.log(randomRecipes);
+            setData(randomRecipes);
         } catch (err) {
             console.error(err);
         }
@@ -59,21 +66,12 @@ function App() {
                 <h2>Top Recipes</h2>
                 <hr id="hr1"/>
                 <div id="r-card-area" className="flex">
-                    <div id="r-card">
-                        <AllRcard/>
-                    </div>
-                    <div id="r-card">
-                        <AllRcard/>
-                    </div>
-                    <div id="r-card">
-                        <AllRcard/>
-                    </div>
-                    <div id="r-card">
-                        <AllRcard/>
-                    </div>
-                    <div id="r-card">
-                        <AllRcard/>
-                    </div>
+                    {/* Map through the random recipes and pass them to AllRcard component */}
+                    {data.map((recipe, index) => (
+                        <div key={index} id="r-card">
+                            <AllRcard recipe={recipe} />
+                        </div>
+                    ))}
                 </div>
             </div>
             <Footerdark/>

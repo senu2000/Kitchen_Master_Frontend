@@ -22,7 +22,7 @@ function UserTable(props) {
 
     useEffect(() => {
         fetchData();
-    }, [data]);
+    }, []);
 
     return (
         <div>

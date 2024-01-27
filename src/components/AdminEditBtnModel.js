@@ -7,28 +7,6 @@ import axios from 'axios';
 function AdminEditBtnModel(props) {
     const [openModal, setOpenModal] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
-    const [formData, setFormData] = useState({
-        title: '',
-        description: '',
-        category: '',
-        servingSize: '',
-        preparationTime: '',
-        ingredients: '',
-        instructions: '',
-        recipe_image: null,
-    });
-    const [put, setPut] = useState({
-        title: '',
-        description: '',
-        category: '',
-        serving_size: '',
-        prep_time: '',
-        ingredients: '',
-        instruction: '',
-        recipe_image: ''
-    });
-
-
 
     const onCloseModal = () => {
         setOpenModal(false);
@@ -40,59 +18,16 @@ function AdminEditBtnModel(props) {
         transition: isHovered ? '0.3s ease-in-out' : '',
     };
 
-    const handleInput = (event) => {
-        const { name, value, type, files } = event.target;
-
-        setPut((prevPut) => {
-            if (type === 'file') {
-                return { ...prevPut, [name]: files[0] };
-            } else {
-                return { ...prevPut, [name]: value };
-            }
-        });
-    };
-
-
-
-
-    async function handleSubmit(event) {
-        event.preventDefault();
-
-        const formData = new FormData();
-        formData.append("title", put.title);
-        formData.append("description", put.description);
-        formData.append("category", put.category);
-        formData.append("ingredients", put.ingredients);
-        formData.append("serving_size", put.serving_size);
-        formData.append("prep_time", put.prep_time);
-        formData.append("instruction", put.instruction);
-        formData.append("recipe_image", put.recipe_image);
-        formData.append("fk", put.fk);
-
-        try {
-            const response = await axios.put(`http://127.0.0.1:8000/kitchenMaster/recipeform/${props.item.id}/`, formData);
-
-            console.log(response);
-
-            setPut({
-                title: '',
-                description: '',
-                category: '',
-                serving_size: '',
-                prep_time: '',
-                ingredients: '',
-                instruction: '',
-                recipe_image: null,
-                fk: '',
-            });
-
+    const handleUpdate = async (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target);
+        formData.append("id" , props.item.id)
+        axios.put("http://127.0.0.1:8000/kitchenMaster/recipeform/update/" , formData).then(response => {
+            console.log(response.data)
             onCloseModal();
-            // You might want to trigger a fetch here to update your data
-            props.onEditSuccess();
-        } catch (error) {
-            console.error(error);
-            // Handle the error, you might want to set an error state or display a message to the user.
-        }
+        }).catch(error => {
+            console.log(error)
+        })
     }
 
 
@@ -111,7 +46,7 @@ function AdminEditBtnModel(props) {
             <Modal show={openModal} size="md" onClose={onCloseModal} popup>
                 <Modal.Header />
                 <Modal.Body>
-                    <form>
+                    <form onSubmit={handleUpdate}>
                         <div className="space-y-6">
                             <div className="w-full flex items-center justify-center">
                                 <h3 className="text-3xl font-extrabold font-medium text-gray-600 dark:text-white">Edit Recipe</h3>
@@ -120,7 +55,7 @@ function AdminEditBtnModel(props) {
                                 <div className="mb-2 block">
                                     <Label htmlFor="title" value="Title" />
                                 </div>
-                                <TextInput id="title" type="text" name="title" value={put.title} onChange={handleInput} required/>
+                                <TextInput id="title" type="text" name="title" defaultValue = {props.item.title} required/>
                             </div>
                             <div>
                                 <div className="mb-2 block">
@@ -130,8 +65,7 @@ function AdminEditBtnModel(props) {
                                     id="description"
                                     type="text"
                                     name="description"
-                                    value={put.description}
-                                    onChange={handleInput}
+                                    defaultValue = {props.item.description}
                                     required
                                 />
                             </div>
@@ -142,8 +76,7 @@ function AdminEditBtnModel(props) {
                                 <select
                                     id="category"
                                     name="category"
-                                    value={put.category}
-                                    onChange={handleInput}
+                                    defaultValue = {props.item.category}
                                     className="w-full rounded"
                                     required
                                 >
@@ -160,7 +93,7 @@ function AdminEditBtnModel(props) {
                                 <div className="mb-2 block">
                                     <Label htmlFor="servingSize" value="Serving Size" />
                                 </div>
-                                <TextInput id="servingSize" name="servingSize" type="text" onChange={handleInput} value={put.serving_size} required />
+                                <TextInput id="servingSize" name="serving_size" type="text" defaultValue = {props.item.serving_size} required />
                             </div>
                             <div>
                                 <div className="mb-2 block">
@@ -168,10 +101,9 @@ function AdminEditBtnModel(props) {
                                 </div>
                                 <TextInput
                                     id="preparationTime"
-                                    name="preparationTime"
+                                    name="prep_time"
                                     type="text"
-                                    onChange={handleInput}
-                                    value={put.prep_time}
+                                    defaultValue = {props.item.prep_time}
                                     required
                                 />
                             </div>
@@ -179,7 +111,7 @@ function AdminEditBtnModel(props) {
                                 <div className="mb-2 block">
                                     <Label htmlFor="ingredients" value="Ingredients" />
                                 </div>
-                                <TextInput id="ingredients" name="ingredients" type="text" onChange={handleInput} value={put.ingredients} required />
+                                <TextInput id="ingredients" name="ingredients" type="text" defaultValue = {props.item.ingredients} required />
                             </div>
                             <div>
                                 <div className="mb-2 block">
@@ -187,18 +119,11 @@ function AdminEditBtnModel(props) {
                                 </div>
                                 <TextInput
                                     id="instructions"
-                                    name="instructions"
+                                    name="instruction"
                                     type="text"
-                                    onChange={handleInput}
-                                    value={put.instruction}
+                                    defaultValue = {props.item.instruction}
                                     required
                                 />
-                            </div>
-                            <div>
-                                <div className="mb-2 block">
-                                    <Label htmlFor="image" value="Image" />
-                                </div>
-                                <TextInput id="image" name="recipe_image" type="file" onChange={handleInput} required/>
                             </div>
                             <div className="w-full flex items-center justify-center">
                                 <Button
@@ -206,7 +131,7 @@ function AdminEditBtnModel(props) {
                                     style={buttonStyle}
                                     onMouseEnter={() => setIsHovered(true)}
                                     onMouseLeave={() => setIsHovered(false)}
-                                    onClick={handleSubmit}
+
                                 >
                                     Update Recipe
                                 </Button>

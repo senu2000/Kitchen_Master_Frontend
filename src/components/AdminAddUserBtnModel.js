@@ -37,10 +37,8 @@ function AdminAddUserBtnModel({parameter1, parameter2}) {
         });
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-
-        axios.post('http://127.0.0.1:8000/kitchenMaster/userform/', post)
+    function handleSubmit() {
+        axios.post('http://127.0.0.1:8000/kitchenMaster/userform/add/', post)
             .then(response => {
                 console.log(response);
 

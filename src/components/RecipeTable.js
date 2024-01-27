@@ -12,17 +12,9 @@ function RecipeTable(props) {
         try {
             const response = await axios.get('http://127.0.0.1:8000/kitchenMaster/recipeform/');
             const recipes = response.data;
+            console.log(recipes)
 
-            const recipesWithUserData = await Promise.all(
-                recipes.map(async (recipe) => {
-                    const userResponse = await axios.get(`http://127.0.0.1:8000/kitchenMaster/userform/${recipe.fk}/`);
-                    const userData = userResponse.data;
-
-                    return { ...recipe, user: userData };
-                })
-            );
-
-            setData(recipesWithUserData);
+            setData(recipes);
         } catch (err) {
             console.error(err);
         }
@@ -53,10 +45,10 @@ function RecipeTable(props) {
                                     className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{recipe.title}</Table.Cell>
                                 <Table.Cell>{recipe.category}</Table.Cell>
                                 <Table.Cell>
-                                    <img src={recipe.recipe_image} alt="" id="recipe-img"/>
+                                    <img src={"http://127.0.0.1:8000/"+recipe.recipe_image} alt="" id="recipe-img"/>
                                 </Table.Cell>
                                 <Table.Cell>
-                                    {`${recipe.user?.firstname || 'Unknown'} ${recipe.user?.lastname || 'Unknown'}`}
+                                    {`${recipe.fk?.firstname || 'Unknown'} ${recipe.fk?.lastname || 'Unknown'}`}
                                 </Table.Cell>
                                 <Table.Cell>
                                     {/*<a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">*/}
