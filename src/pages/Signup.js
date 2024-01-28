@@ -40,7 +40,7 @@ const Signup = () => {
     return (
         <>
 
-            <div className="coonn min-h-screen flex items-center justify-center bg-gray-300">
+            <div className="coonn min-h-screen flex items-center justify-center bg-gray-300" style={{backgroundColor : "rgba(0, 0, 0, 0.84)"}}>
                 <div className="container mx-auto p-16 ">
                     <div>
                         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -50,7 +50,7 @@ const Signup = () => {
 
 
 
-                                    <img src="" alt="Sign In" className='myimg'/>
+                                    <img src="/img/adduser4.png" alt="Sign In" className='myimg'/>
 
 
 
@@ -58,7 +58,7 @@ const Signup = () => {
 
                                     <div className="container rounded-2xl bg-gray-900 w-84 h-84"></div>
                                     <h2 className="bon mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">
-                                        Sign Up to your account
+                                        Sign Up to <span style={{color : "#DA0037"}}>Kitchen-Master</span>
                                     </h2>
                                 </div>
 
@@ -218,6 +218,7 @@ const Signup = () => {
 
                                         <div>
                                             <button
+                                                style={{ backgroundColor: "#DA0037", color: "#FFFFFF" }}
                                                 onClick={RegisterBtn}
                                                 className="bonn flex w-full justify-center rounded-md bg-orange-500 px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                             >
@@ -232,7 +233,7 @@ const Signup = () => {
                                     ):(
                                         <p className="mt-10 text-center text-lg text-white">
                                             Already have an Account?{' '}
-                                            <a href="/login" className="font-semibold leading-6 text-white hover:text-indigo-500">
+                                            <a href="/" className="font-semibold leading-6 text-white hover:text-red-600">
                                                 Sign In
                                             </a>
                                         </p>)

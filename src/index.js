@@ -20,7 +20,7 @@ import AdminPanalAdmins from "./pages/AdminPanalAdmins";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "home",
         element: <App/>,
     },
     {
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         element: <EditRecipePage/>,
     },
     {
-        path: "login",
+        path: "/",
         element: <Login/>,
     },
     {

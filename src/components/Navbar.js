@@ -63,7 +63,7 @@ function Navbardrk() {
             </div>
             <Navbar.Collapse id="nav-links">
                 <Link
-                    to="/"
+                    to="/home"
                     id="nav-link"
                     className={activeLink === '/' ? 'active' : ''}
                     onClick={() => handleLinkClick('/')}
