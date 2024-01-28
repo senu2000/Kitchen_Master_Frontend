@@ -25,6 +25,17 @@ const Signup = () => {
     }
 
     function handleRegister() {
+        const isFormValid = Object.values(post).every((value) => value.trim() !== '');
+        if (!isFormValid) {
+            window.alert('Please fill in all fields.');
+            return;
+        }
+        
+        if (post.password !== post.rpassword) {
+            window.alert("Passwords do not match!");
+            return;
+        }
+
         axios.post('http://127.0.0.1:8000/kitchenMaster/userform/add/', post)
             .then(response => {
                 console.log(response);
@@ -60,7 +71,7 @@ const Signup = () => {
                             {/* <div className="container rounded-2xl bg-gray-500"> */}
                             <div className="bg-black sm:mx-auto sm:w-full sm:max-w-lg rounded-3xl">
                                 <div className="sm:mx-auto sm:w-full sm:max-w-lg">
-                                    <img src="/img/adduser4.png" alt="Sign In" className='myimg'/>
+                                    <img src="/img/adduser3.jpg" alt="Sign In" className='myimg rounded-full'/>
                                     <div className="container rounded-2xl bg-gray-900 w-84 h-84"></div>
                                     <h2 className="bon mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">
                                         Sign Up to <span style={{color : "#DA0037"}}>Kitchen-Master</span>

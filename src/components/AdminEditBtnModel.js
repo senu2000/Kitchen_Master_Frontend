@@ -25,7 +25,9 @@ function AdminEditBtnModel(props) {
         axios.put("http://127.0.0.1:8000/kitchenMaster/recipeform/update/" , formData).then(response => {
             console.log(response.data)
             console.log(formData)
+            window.alert("Recipe Updated successfully");
             onCloseModal();
+
             window.location.reload()
         }).catch(error => {
             console.log(error)

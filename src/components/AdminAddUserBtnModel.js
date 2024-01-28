@@ -38,6 +38,10 @@ function AdminAddUserBtnModel({parameter1, parameter2}) {
     }
 
     function handleSubmit() {
+        if (post.password !== post.rpassword) {
+            window.alert("Passwords do not match!");
+            return;
+        }
         axios.post('http://127.0.0.1:8000/kitchenMaster/userform/add/', post)
             .then(response => {
                 console.log(response);
@@ -52,6 +56,7 @@ function AdminAddUserBtnModel({parameter1, parameter2}) {
                     role: ''
                 });
 
+                window.alert({parameter1} + "added successfully");
                 onCloseModal();
                 // navigate(0)
                 window.location.reload();
@@ -136,9 +141,11 @@ function AdminAddUserBtnModel({parameter1, parameter2}) {
                             </div>
                             <div className="w-full flex items-center justify-center">
                                 <Button type="submit" onClick={handleSubmit}
-                                        style={buttonStyle}
-                                        onMouseEnter={() => setIsHovered(true)}
-                                        onMouseLeave={() => setIsHovered(false)}>Save {parameter2}
+                                        // style={buttonStyle}
+                                        // onMouseEnter={() => setIsHovered(true)}
+                                        // onMouseLeave={() => setIsHovered(false)}
+                                    style={{backgroundColor: "#EDEDED"}}
+                                >Save {parameter2}
                                 </Button>
                             </div>
                         </div>
