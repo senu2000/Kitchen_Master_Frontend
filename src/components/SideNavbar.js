@@ -1,8 +1,15 @@
 import React from 'react';
 import "../css/SideNavbar.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 function SideNavbar(props) {
+    let navigate = useNavigate();
+
+    const logout = () => {
+        document.cookie = 'mytoken=null; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        localStorage.clear();
+        navigate('/');
+    }
     return (
         <div>
             <div className="md:flex side-navbar-body">
@@ -26,20 +33,12 @@ function SideNavbar(props) {
                         </li>
                     </Link>
                     <hr/>
-                    <Link to="#" id="nav-link">
+                    <Link to="#" onClick={logout} id="nav-link">
                         <li id="side-bar-btn">
                             Logout
                         </li>
                     </Link>
-                    {/*<hr/>*/}
                 </ul>
-                {/*<div*/}
-                {/*    className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">*/}
-                {/*    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Profile Tab</h3>*/}
-                {/*    <Rcard/>*/}
-                {/*    <Rcard/>*/}
-                {/*    <Rcard/>*/}
-                {/*</div>*/}
             </div>
 
         </div>

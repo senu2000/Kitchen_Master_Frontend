@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Table } from 'flowbite-react';
 import "../css/RecipeTablecss.css";
 import axios from "axios";
+import DeleteBtnModel from "./DeleteBtnModel";
 
 function YourRecipeTable(props) {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        // Get user ID from localStorage
         const userId = localStorage.getItem('id');
 
-        // Fetch recipes for the specific user
         const fetchUserRecipes = async () => {
             try {
                 const response = await axios.get(`http://127.0.0.1:8000/kitchenMaster/recipeform/fk/${userId}/`);
@@ -22,9 +21,16 @@ function YourRecipeTable(props) {
             }
         };
 
-        // Fetch recipes when the component mounts
         fetchUserRecipes();
     }, []);
+
+    // function reload() {
+    //     window.location.reload()
+    // }
+
+    const reload = () => {
+        window.location.reload()
+    }
 
     return (
         <div>
@@ -49,14 +55,15 @@ function YourRecipeTable(props) {
                                     <img src={`http://127.0.0.1:8000/${recipe.recipe_image}`} alt="" id="recipe-img" />
                                 </Table.Cell>
                                 <Table.Cell>
-                                    <a href="#" id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
+                                    <a href={`edit-recipes?recipeId=${recipe.id}`} id="edit-btn" className="font-medium text-cyan-600 dark:text-cyan-500">
                                         Edit
                                     </a>
                                 </Table.Cell>
                                 <Table.Cell>
-                                    <a href="#" id="delete-btn" className="">
-                                        Delete
-                                    </a>
+                                    {/*<a href="#" id="delete-btn" className="">*/}
+                                    {/*    Delete*/}
+                                    {/*</a>*/}
+                                    <DeleteBtnModel item={recipe} onDeleteSuccess={reload} endpoint="recipeform" />
                                 </Table.Cell>
                             </Table.Row>
                         ))}

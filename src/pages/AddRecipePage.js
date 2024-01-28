@@ -3,10 +3,12 @@ import "../css/addrecipepage.css";
 import Navbardrk from "../components/Navbar";
 import Footerdark from "../components/Footer";
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 
 function AddRecipePage() {
+  let navigate = useNavigate()
   const userId = localStorage.getItem('id');
   const [post, setPost] = useState({
     title: '',
@@ -20,39 +22,27 @@ function AddRecipePage() {
     fk_id: userId
   })
 
-  const handleInput = (event) =>{
-    setPost({...post, [event.target.name]: event.target.value})
-    console.log(post)
-  }
 
-  function handleSubmit() {
-    axios.post('http://127.0.0.1:8000/kitchenMaster/recipeform/add/', post)
-        .then(response => {
-          console.log(response);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target);
+      formData.append("fk" , userId)
 
-          setPost({
-            title: '',
-            description: '',
-            category: '',
-            ingredients: '',
-            serving_size: '',
-            prep_time: '',
-            instruction: '',
-            recipe_image: '',
-            fk_id: userId
-          });
+      axios.post('http://127.0.0.1:8000/kitchenMaster/recipeform/add/', formData)
+          .then(response => {
+      console.log(response.data)
+            window.alert("Recipe added successfully");
+            navigate('/your-recipes')
 
-          // window.location.reload();
-          window.alert("Recipe added successfully");
-        })
-        .catch(err => console.log(err));
+    }).catch(error => {
+      console.log(error)
+    })
   }
 
 
   return (
     <div className="bg-gray-800 add-recipe-body">
       <Navbardrk />
-      {/* <div style={{ backgroundImage: "url(../img/ckn.png)" }}> */}
       <div>
         <form onSubmit={handleSubmit} id="add-recipepage-form">
           <h1 class="mb-4 text-5xl font-extrabold  text-left md:text-center">
@@ -62,12 +52,12 @@ function AddRecipePage() {
           <label className="block text-sm font-medium text-gray-100">
             Title
           </label>
-          <input type="text" name="title" onChange={handleInput} id="title"></input>
+          <input type="text" name="title"  id="title"></input>
 
           <label className="block text-sm font-medium text-gray-100">
             Description
           </label>
-          <input type="text" name="description" onChange={handleInput} id="description"></input>
+          <input type="text" name="description"  id="description"></input>
 
           <div>
             <label
@@ -79,7 +69,7 @@ function AddRecipePage() {
             <select
               id="default"
               name="category"
-              onChange={handleInput}
+
               class="bg-gray-50 border border-gray-300 text-gray-800 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option selected>Choose a meal category</option>
@@ -96,14 +86,14 @@ function AddRecipePage() {
           <label className="block text-sm font-medium text-gray-100">
             Serving Size
           </label>
-          <input type="text" name="serving_size" onChange={handleInput} id="serving_size"></input>
+          <input type="text" name="serving_size"  id="serving_size"></input>
           <label className="block text-sm font-medium text-gray-100">
             Preparation Time
           </label>
           <input
             type="text"
             name="prep_time"
-            onChange={handleInput}
+
             id="prep_time"
           ></input>
           <label className="block text-sm font-medium text-gray-100">
@@ -116,13 +106,13 @@ function AddRecipePage() {
           {/*  rows="5"*/}
           {/*  style={{ backgroundColor: "white" }}*/}
           {/*></textarea>*/}
-          <input type="text" name="ingredients" onChange={handleInput} />
+          <input type="text" name="ingredients"  />
           <label className="block text-sm font-medium text-gray-100">
             Instructions
           </label>
           <textarea
             name="instruction"
-            onChange={handleInput}
+
             id="instruction"
             cols="5"
             rows="5"
@@ -131,7 +121,7 @@ function AddRecipePage() {
           <label className="block text-sm font-medium text-gray-100">
             Image
           </label>
-          <input type="file" name="recipe_image" onChange={handleInput} style={{color:"white"}} />
+          <input type="file" name="recipe_image"  style={{color:"white"}} />
           <button
             type="submit"
             className="bg-blue-500 text-black px-3 py-2 rounded-md hover:bg-#DA0037"

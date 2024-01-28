@@ -24,7 +24,9 @@ function AdminEditBtnModel(props) {
         formData.append("id" , props.item.id)
         axios.put("http://127.0.0.1:8000/kitchenMaster/recipeform/update/" , formData).then(response => {
             console.log(response.data)
+            console.log(formData)
             onCloseModal();
+            window.location.reload()
         }).catch(error => {
             console.log(error)
         })
