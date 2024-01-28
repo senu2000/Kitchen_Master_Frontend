@@ -2,30 +2,59 @@ import React from "react";
 import "../css/addrecipepage.css";
 import Navbardrk from "../components/Navbar";
 import Footerdark from "../components/Footer";
-// import { ChangeEvent, useState } from "react";
+import {useState} from "react";
+import axios from "axios";
+
 
 function AddRecipePage() {
-  // const [data, setData] =
-  //   useState[
-  //     {
-  //       title: "",
-  //       servingsize: "",
-  //       preparationtime: "",
-  //       ingredients: "",
-  //       instructions: "",
-  //       instructions:""
-  //     }
-  //   ];
-  //   const handleChange = ()=>{
+  const userId = localStorage.getItem('id');
+  const [post, setPost] = useState({
+    title: '',
+    description: '',
+    category: '',
+    ingredients: '',
+    serving_size: '',
+    prep_time: '',
+    instruction: '',
+    recipe_image: '',
+    fk_id: userId
+  })
 
-  //   }
-  //   const handleSubmit = () => {};
+  const handleInput = (event) =>{
+    setPost({...post, [event.target.name]: event.target.value})
+    console.log(post)
+  }
+
+  function handleSubmit() {
+    axios.post('http://127.0.0.1:8000/kitchenMaster/recipeform/add/', post)
+        .then(response => {
+          console.log(response);
+
+          setPost({
+            title: '',
+            description: '',
+            category: '',
+            ingredients: '',
+            serving_size: '',
+            prep_time: '',
+            instruction: '',
+            recipe_image: '',
+            fk_id: userId
+          });
+
+          // window.location.reload();
+          window.alert("Recipe added successfully");
+        })
+        .catch(err => console.log(err));
+  }
+
+
   return (
     <div className="bg-gray-800 add-recipe-body">
       <Navbardrk />
       {/* <div style={{ backgroundImage: "url(../img/ckn.png)" }}> */}
       <div>
-        <form method="post" id="add-recipepage-form">
+        <form onSubmit={handleSubmit} id="add-recipepage-form">
           <h1 class="mb-4 text-5xl font-extrabold  text-left md:text-center">
             Add Your <span>Recipe</span>
           </h1>
@@ -33,7 +62,12 @@ function AddRecipePage() {
           <label className="block text-sm font-medium text-gray-100">
             Title
           </label>
-          <input type="text" name="title" id="title"></input>
+          <input type="text" name="title" onChange={handleInput} id="title"></input>
+
+          <label className="block text-sm font-medium text-gray-100">
+            Description
+          </label>
+          <input type="text" name="description" onChange={handleInput} id="description"></input>
 
           <div>
             <label
@@ -44,63 +78,64 @@ function AddRecipePage() {
             </label>
             <select
               id="default"
+              name="category"
+              onChange={handleInput}
               class="bg-gray-50 border border-gray-300 text-gray-800 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option selected>Choose a meal category</option>
-              <option value="breakfast">Breakfast</option>
-              <option value="lunch">Lunch</option>
-              <option value="dinner">Dinner</option>
-              <option value="quickmeals">Quick Meals</option>
-              <option value="vegetarionmeals">Vegetarion Meals</option>
-              <option value="drinks">Drinks</option>
-              <option value="desserts">Desserts</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Quick-meals">Quick Meals</option>
+              <option value="Veg">Veg</option>
+              <option value="Drink">Drink</option>
+              <option value="Dessert">Dessert</option>
             </select>
           </div>
 
           <label className="block text-sm font-medium text-gray-100">
             Serving Size
           </label>
-          <input type="text" name="servingsize" id="servingsize"></input>
+          <input type="text" name="serving_size" onChange={handleInput} id="serving_size"></input>
           <label className="block text-sm font-medium text-gray-100">
             Preparation Time
           </label>
           <input
             type="text"
-            name="preparationtime"
-            id="preparationtime"
+            name="prep_time"
+            onChange={handleInput}
+            id="prep_time"
           ></input>
           <label className="block text-sm font-medium text-gray-100">
             Ingredients
           </label>
+          {/*<textarea*/}
+          {/*  name="ingredients"*/}
+          {/*  id="ingredients"*/}
+          {/*  cols="5"*/}
+          {/*  rows="5"*/}
+          {/*  style={{ backgroundColor: "white" }}*/}
+          {/*></textarea>*/}
+          <input type="text" name="ingredients" onChange={handleInput} />
+          <label className="block text-sm font-medium text-gray-100">
+            Instructions
+          </label>
           <textarea
-            name="ingredients"
-            id="ingredients"
+            name="instruction"
+            onChange={handleInput}
+            id="instruction"
             cols="5"
             rows="5"
             style={{ backgroundColor: "white" }}
           ></textarea>
           <label className="block text-sm font-medium text-gray-100">
-            Instructions
+            Image
           </label>
-          <textarea
-            name="instructions"
-            id="instructions"
-            cols="5"
-            rows="5"
-            style={{ backgroundColor: "white" }}
-          ></textarea>
-
-          {/* <div>
-      <input type="file" onChange={handleFileChange} />
-
-      <div>{file && `${file.name} - ${file.type}`}</div>
-
-      <button onClick={handleUploadClick}>Upload</button>
-    </div> */}
-
+          <input type="file" name="recipe_image" onChange={handleInput} style={{color:"white"}} />
           <button
             type="submit"
             className="bg-blue-500 text-black px-3 py-2 rounded-md hover:bg-#DA0037"
+            style={{ backgroundColor: "#DA0037", color: "#FFFFFF" }}
           >
             Add Recipe
           </button>

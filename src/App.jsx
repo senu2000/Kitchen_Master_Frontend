@@ -33,7 +33,7 @@ function App() {
         fetchData();
     }, []);
 
-    console.log(localStorage.getItem('id'))
+    // console.log(localStorage.getItem('id'))
     return (
         <div className="body">
             <Navbardrk/>

@@ -40,9 +40,9 @@ const Login = () => {
                         console.log(resp)
                         axios.get(`http://127.0.0.1:8000/kitchenMaster/findoneuser/${username}/`)
                             .then(response => {
-                                console.log("new role :"+response.data.role)
-                                setRole(response.data.role)
-                                localStorage.setItem('id',response.data.id)
+                                console.log("new role :"+response.data.role);
+                                setRole(response.data.role);
+                                localStorage.setItem('id', response.data.id)
                             })
 
 
