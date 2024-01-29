@@ -30,7 +30,7 @@ const Signup = () => {
             window.alert('Please fill in all fields.');
             return;
         }
-        
+
         if (post.password !== post.rpassword) {
             window.alert("Passwords do not match!");
             return;

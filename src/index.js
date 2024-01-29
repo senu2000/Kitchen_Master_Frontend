@@ -16,6 +16,7 @@ import Signup from "./pages/Signup";
 import ViewRecipePage from "./pages/ViewRecipePage";
 import AdminPanalUsers from "./pages/AdminPanalUsers";
 import AdminPanalAdmins from "./pages/AdminPanalAdmins";
+import SearchResualt from "./pages/SearchResualt";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
     {
         path: "view-recipe",
         element: <ViewRecipePage/>,
+    },
+    {
+        path: "search-recipe",
+        element: <SearchResualt/>,
     },
 ]);
 

@@ -66,7 +66,6 @@ function App() {
                 <h2>Top Recipes</h2>
                 <hr id="hr1"/>
                 <div id="r-card-area" className="flex">
-                    {/* Map through the random recipes and pass them to AllRcard component */}
                     {data.map((recipe, index) => (
                         <div key={index} id="r-card">
                             <AllRcard recipe={recipe} />

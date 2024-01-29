@@ -16,7 +16,7 @@ export default function AllRcard({ recipe }) {
         </h5>
 
         <div className="flex items-center justify-center">
-          <a href={`view-recipe?recipeId=${recipe.id}`}>
+          <a href={`/view-recipe?recipeId=${recipe.id}`}>
             <MainBtn>View Recipe</MainBtn>
           </a>
         </div>
